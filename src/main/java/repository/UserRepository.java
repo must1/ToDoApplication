@@ -5,7 +5,8 @@ import model.User;
 import java.sql.*;
 import java.util.TimeZone;
 
-public class UserRepository implements UserInterface {
+public class UserRepository implements UserActions {
+
     private Connection connection;
 
     public UserRepository() throws SQLException {
@@ -32,9 +33,7 @@ public class UserRepository implements UserInterface {
         if (result.next())
             count = result.getInt(1);
 
-        if (count < 1)
-            return false;
-        return true;
+        return count >= 1;
     }
 
     public int retrieveUserID(User user) throws SQLException {

@@ -12,6 +12,7 @@ import java.util.Scanner;
 
 
 public class ToDoView {
+
     private static final int LOGIN = 1;
     private static final int REGISTER = 2;
     private Logger logger;
@@ -79,7 +80,7 @@ public class ToDoView {
         username = input.next();
         logger.info("Password: ");
         password = input.next();
-        if (toDoEngine.registerUser(username, password))
+        if (toDoEngine.createUser(username, password))
             logger.info("User created successfully, now you can sign in!");
     }
 

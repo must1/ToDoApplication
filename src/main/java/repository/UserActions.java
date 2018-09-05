@@ -4,7 +4,8 @@ import model.User;
 
 import java.sql.SQLException;
 
-public interface UserInterface {
+public interface UserActions {
+
     boolean createUser(User user) throws SQLException;
 
     boolean signIn(User user) throws SQLException;
