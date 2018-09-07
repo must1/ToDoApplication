@@ -6,7 +6,7 @@ import model.User;
 import java.sql.SQLException;
 import java.util.List;
 
-public interface TaskInterface {
+public interface TaskActions {
 
     boolean addTask(Task task, User user) throws SQLException;
 

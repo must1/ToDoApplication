@@ -2,26 +2,28 @@ package controller;
 
 import model.Task;
 import model.User;
-import repository.TaskInterface;
-import repository.UserInterface;
+import repository.TaskActions;
+import repository.UserActions;
 
 import java.sql.SQLException;
 import java.util.List;
 
 public class ToDoEngine {
-    private TaskInterface taskStorage;
-    private UserInterface userStorage;
+
+    private TaskActions taskStorage;
+    private UserActions userStorage;
     private User connectedUser;
 
-    public ToDoEngine(UserInterface userStorage, TaskInterface taskStorage) {
+    public ToDoEngine(UserActions userStorage, TaskActions taskStorage) {
         this.taskStorage = taskStorage;
         this.userStorage = userStorage;
     }
 
     public boolean signIn(String username, String password) throws SQLException {
         connectedUser = new User(username, password);
-        if (!userStorage.signIn(connectedUser))
+        if (!userStorage.signIn(connectedUser)) {
             return false;
+        }
         connectedUser.setID(retrieveConnectedUserID(connectedUser));
         return true;
     }
@@ -30,9 +32,8 @@ public class ToDoEngine {
         return userStorage.retrieveUserID(connectedUser);
     }
 
-    public boolean registerUser(String username, String password) throws SQLException {
-        User user = new User(username, password);
-        return userStorage.createUser(user);
+    public boolean createUser(String username, String password) throws SQLException {
+        return userStorage.createUser(new User(username, password));
     }
 
     public void addTask(String taskName) throws SQLException {

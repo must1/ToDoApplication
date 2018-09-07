@@ -8,7 +8,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.TimeZone;
 
-public class TaskRepository implements TaskInterface {
+public class TaskRepository implements TaskActions {
+
     private Connection connection;
 
     public TaskRepository() throws SQLException {
