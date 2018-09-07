@@ -7,6 +7,7 @@ import lombok.*;
 @AllArgsConstructor
 @ToString
 @NoArgsConstructor
+@EqualsAndHashCode
 public class Task {
     private String taskName;
 }

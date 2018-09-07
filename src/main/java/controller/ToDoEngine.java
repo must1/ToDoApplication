@@ -10,18 +10,18 @@ import java.util.List;
 
 public class ToDoEngine {
 
-    private TaskActions taskStorage;
-    private UserActions userStorage;
+    private TaskActions taskActions;
+    private UserActions userActions;
     private User connectedUser;
 
     public ToDoEngine(UserActions userStorage, TaskActions taskStorage) {
-        this.taskStorage = taskStorage;
-        this.userStorage = userStorage;
+        this.taskActions = taskStorage;
+        this.userActions = userStorage;
     }
 
     public boolean signIn(String username, String password) throws SQLException {
         connectedUser = new User(username, password);
-        if (!userStorage.signIn(connectedUser)) {
+        if (!userActions.signIn(connectedUser)) {
             return false;
         }
         connectedUser.setID(retrieveConnectedUserID(connectedUser));
@@ -29,23 +29,22 @@ public class ToDoEngine {
     }
 
     private int retrieveConnectedUserID(User connectedUser) throws SQLException {
-        return userStorage.retrieveUserID(connectedUser);
+        return userActions.retrieveUserID(connectedUser);
     }
 
     public boolean createUser(String username, String password) throws SQLException {
-        return userStorage.createUser(new User(username, password));
+        return userActions.createUser(new User(username, password));
     }
 
     public void addTask(String taskName) throws SQLException {
-        taskStorage.addTask(new Task(taskName), connectedUser);
+        taskActions.addTask(new Task(taskName), connectedUser);
     }
 
-
     public void deleteTask(String taskName) throws SQLException {
-        taskStorage.deleteTask(new Task(taskName), connectedUser);
+        taskActions.deleteTask(new Task(taskName), connectedUser);
     }
 
     public List<Task> getTasks() throws SQLException {
-        return taskStorage.getTasks(connectedUser);
+        return taskActions.getTasks(connectedUser);
     }
 }
