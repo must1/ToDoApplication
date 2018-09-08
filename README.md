@@ -2,7 +2,7 @@
 
 ### About project:
 
-It is console ToDo application. It is intended to manage everyday tasks.
+It is console ToDo application based on MVC pattern. It is intended to manage everyday tasks.
 Application contains:
 - adding users to database
 - adding tasks to database
