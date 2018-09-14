@@ -17,12 +17,26 @@ public class ToDoView {
         logger.info("2. Sign up");
     }
 
-
-    public void showError(String error) {
-        logger.info(error);
+    public void showError() {
+        logger.info("Try again");
     }
 
     public void showMessage(String message) {
         logger.info(message);
+    }
+
+    public void showTaskMenu() {
+        logger.info("1. Add task");
+        logger.info("2. Remove task");
+        logger.info("3. Get all tasks");
+        logger.info("4. Quit");
+    }
+
+    public void showInputingUserAndPasswordMessage() {
+        logger.info("Put your username and password");
+    }
+
+    public void showInputingTaskMessage() {
+        logger.info("Input task");
     }
 }

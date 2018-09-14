@@ -1,4 +1,8 @@
 import controller.ToDoController;
+import model.Login;
+import model.Registration;
+import model.Tasker;
+import repository.TaskActions;
 import repository.TaskRepository;
 import repository.UserRepository;
 import view.ToDoView;
@@ -8,10 +12,9 @@ import java.sql.SQLException;
 public class Main {
 
     public static void main(String[] args) throws SQLException {
-        UserRepository userRepository = new UserRepository();
         TaskRepository taskRepository = new TaskRepository();
-        ToDoView toDoView = new ToDoView();
-        ToDoController toDoController = new ToDoController(userRepository,taskRepository,toDoView);
+        UserRepository userRepository = new UserRepository();
+        ToDoController toDoController = new ToDoController(new Tasker(taskRepository), new Registration(userRepository), new Login(userRepository), new ToDoView());
         toDoController.startApplication();
     }
 }
