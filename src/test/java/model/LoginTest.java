@@ -10,6 +10,7 @@ import java.sql.SQLException;
 
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 
 public class LoginTest {
 
@@ -29,8 +30,10 @@ public class LoginTest {
     public void signIn() throws SQLException {
         User user = new User("admin", "123");
         registration.createUser("admin", "123");
+        when(userActions.signIn(user)).thenReturn(true);
         verify(userActions).createUser(user);
         login.signIn("admin","123");
         verify(userActions).signIn(user);
+        assertTrue(login.signIn("admin","123"));
     }
 }
