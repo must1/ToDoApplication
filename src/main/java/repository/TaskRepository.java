@@ -53,7 +53,6 @@ public class TaskRepository implements TaskActions {
     }
 
 
-
     public boolean doesTaskExists(Task task) throws SQLException {
         PreparedStatement preparedStatement = connection.prepareStatement("SELECT task FROM tasks WHERE task=?");
         preparedStatement.setString(1, task.getTaskName());
