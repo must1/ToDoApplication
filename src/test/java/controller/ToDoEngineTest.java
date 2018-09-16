@@ -1,3 +1,4 @@
+/*
 package controller;
 
 import model.Task;
@@ -8,6 +9,7 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import repository.TaskActions;
 import repository.UserActions;
+import view.ToDoView;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -24,12 +26,13 @@ public class ToDoEngineTest {
     TaskActions taskActionsMock;
     @Mock
     UserActions userActionsMock;
-    private ToDoEngine toDoEngine;
+    private ToDoController toDoEngine;
+    private ToDoView toDoView;
 
     @Before
     public void setup() {
         MockitoAnnotations.initMocks(this);
-        toDoEngine = new ToDoEngine(userActionsMock, taskActionsMock);
+        toDoEngine = new ToDoController(userActionsMock, taskActionsMock,toDoView);
     }
 
     @Test
@@ -79,3 +82,4 @@ public class ToDoEngineTest {
         verify(taskActionsMock).deleteTask(taskName, user);
     }
 }
+*/
