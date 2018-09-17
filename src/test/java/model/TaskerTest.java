@@ -1,5 +1,7 @@
 package model;
 
+import controller.login.Login;
+import controller.task.Tasker;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
@@ -34,21 +36,21 @@ public class TaskerTest {
 
     @Test
     public void addTask() throws SQLException {
-        login.signIn("admin", "123");
         Task taskName = new Task("wash");
         User user = new User("admin", "123");
-        verify(userActionsMock).signIn(user);
+
         tasker.addTask("wash", user);
+
         verify(taskActionsMock).addTask(taskName, user);
     }
 
     @Test
     public void deleteTask() throws SQLException {
-        login.signIn("admin", "123");
         Task taskName = new Task("wash");
         User user = new User("admin", "123");
-        verify(userActionsMock).signIn(user);
+
         tasker.deleteTask("wash", user);
+
         verify(taskActionsMock).deleteTask(taskName, user);
     }
 
