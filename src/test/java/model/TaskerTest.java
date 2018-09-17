@@ -1,7 +1,5 @@
 package model;
 
-import controller.login.Login;
-import controller.task.Tasker;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
@@ -20,7 +18,6 @@ import static org.mockito.Mockito.when;
 
 public class TaskerTest {
     private Tasker tasker;
-    private Login login;
     @Mock
     TaskActions taskActionsMock;
     @Mock
@@ -30,7 +27,6 @@ public class TaskerTest {
     public void setup() {
         MockitoAnnotations.initMocks(this);
         tasker = new Tasker(taskActionsMock);
-        login = new Login(userActionsMock);
     }
 
 

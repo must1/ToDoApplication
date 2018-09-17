@@ -4,7 +4,6 @@ import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
-import controller.registration.Registration;
 import repository.UserActions;
 
 import java.sql.SQLException;
@@ -29,6 +28,6 @@ public class RegistrationTest {
 
         registration.createUser("admin", "123");
 
-        verify(userActionsMock).registerUser(user);
+        verify(userActionsMock).createUser(user);
     }
 }
