@@ -8,7 +8,7 @@ Application contains:
 - adding tasks to database
 - getting list of user's tasks
 
-### Technologies that has been used:
+### Technologies that have been used:
 - Java
 - Maven
 - JUnit
